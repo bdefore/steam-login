@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var express = require('express'),
     steam   = require('./index'),
     parseArgs = require('minimist'),
@@ -7,10 +9,10 @@ var args = parseArgs(process.argv.slice(2))
 var app = express();
 
 var config = {
-  apiKey: args.apiKey,
-  host: args.authHost,
-  returnUrl: args.returnUrl,
-  secret: args.sessionSecret
+  apiKey: args.apiKey || process.env.STEAM_API_KEY,
+  host: args.authHost || process.env.AUTH_HOST,
+  returnUrl: args.returnUrl || process.env.RETURN_URL,
+  secret: args.sessionSecret || process.env.SESSION_SECRET
 }
 
 console.log(chalk.green('Starting Steam Auth Server'));

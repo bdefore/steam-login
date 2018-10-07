@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "setup": "npx pm2 install pm2-logrotate",
-    "start": "npx pm2 start server.js -- --apiKey=${STEAM_API_KEY} --authHost=${AUTH_HOST} --returnUrl=${RETURN_URL} --sessionSecret=${SESSION_SECRET}",
-    "stop": "npx pm2 stop 1"
+    "start": "npx pm2 start server.js --name auth",
+    "stop": "npx pm2 stop auth"
   },
   "repository": "cpancake/steam-login",
   "license": "MIT",
@@ -20,6 +20,7 @@
   "dependencies": {
     "bluebird": "^2.9.13",
     "chalk": "^2.4.1",
+    "dotenv": "^6.0.0",
     "express": "^4.12.2",
     "minimist": "^1.2.0",
     "openid": "^2.0.6",
