@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "setup": "npx pm2 install pm2-logrotate",
-    "start": "npx pm2 start server.js -- ${STEAM_API_KEY} ${AUTH_HOST} ${RETURN_URL} ${SESSION_SECRET}",
+    "start": "npx pm2 start server.js -- --apiKey=${STEAM_API_KEY} --authHost=${AUTH_HOST} --returnUrl=${RETURN_URL} --sessionSecret=${SESSION_SECRET}",
     "stop": "npx pm2 stop 1"
   },
   "repository": "cpancake/steam-login",
@@ -19,7 +19,9 @@
   "homepage": "http://github.com/cpancake/steam-login",
   "dependencies": {
     "bluebird": "^2.9.13",
+    "chalk": "^2.4.1",
     "express": "^4.12.2",
+    "minimist": "^1.2.0",
     "openid": "^2.0.6",
     "pm2": "^3.2.2",
     "pm2-logrotate": "^2.6.0",
