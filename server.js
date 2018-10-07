@@ -4,10 +4,10 @@ var express = require('express'),
     steam   = require('./index');
 
 var app = express();
-var apiKey = process.argv[2];
-var host = process.argv[3];
-var returnUrl = process.argv[4];
-var secret = process.argv[5];
+var apiKey = process.argv[3];
+var host = process.argv[4];
+var returnUrl = process.argv[5];
+var secret = process.argv[6];
 
 var port = host.substr(host.lastIndexOf(':') + 1);
 

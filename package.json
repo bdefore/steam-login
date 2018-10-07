@@ -12,7 +12,7 @@
   "scripts": {
     "setup": "npx pm2 install pm2-logrotate",
     "start": "npx pm2 start server.js -- ${STEAM_API_KEY} ${AUTH_HOST} ${RETURN_URL} ${SESSION_SECRET}",
-    "stop": "npx pm2 stop 0"
+    "stop": "npx pm2 stop 1"
   },
   "repository": "cpancake/steam-login",
   "license": "MIT",
