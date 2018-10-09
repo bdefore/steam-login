@@ -11,7 +11,9 @@
   ],
   "scripts": {
     "setup": "npx pm2 install pm2-logrotate",
+    "log": "npx pm2 logs auth",
     "start": "npx pm2 start server.js --name auth",
+    "status": "npx pm2 status",
     "stop": "npx pm2 stop auth"
   },
   "repository": "cpancake/steam-login",
