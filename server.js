@@ -11,6 +11,7 @@ var app = express();
 var config = {
   apiKey: args.apiKey || process.env.STEAM_API_KEY,
   host: args.authHost || process.env.AUTH_HOST,
+  realm: args.realm || process.env.REALM,
   returnUrl: args.returnUrl || process.env.RETURN_URL,
   secret: args.sessionSecret || process.env.SESSION_SECRET
 }
@@ -22,7 +23,7 @@ var port = config.host.substr(config.host.lastIndexOf(':') + 1);
 
 app.use(require('express-session')({ resave: false, saveUninitialized: false, secret: config.secret }));
 app.use(steam.middleware({
-  realm: config.host,
+  realm: config.realm || config.host,
   verify: `${config.host}/verify`,
   apiKey: config.apiKey
 }));
