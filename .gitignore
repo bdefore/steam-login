@@ -28,3 +28,4 @@ node_modules
 
 # dotenv protection against checking in configuration
 .env
+.env.backup*
