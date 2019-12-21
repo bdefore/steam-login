@@ -3,7 +3,8 @@ require('dotenv').config()
 var express = require('express'),
     steam   = require('./index'),
     parseArgs = require('minimist'),
-    chalk = require('chalk')
+    chalk = require('chalk'),
+    querystring = require('querystring')
 
 var args = parseArgs(process.argv.slice(2))
 var app = express();
@@ -37,7 +38,7 @@ app.get('/authenticate', steam.authenticate(), function(req, res) {
 });
 
 app.get('/verify', steam.verify(), function(req, res) {
-  res.redirect(`${config.returnUrl}?user=${JSON.stringify(req.user)}`)
+  res.redirect(`${config.returnUrl}?${querystring.stringify({ user: JSON.stringify(req.user) })}`)
 });
 
 app.get('/logout', steam.enforceLogin('/'), function(req, res) {
